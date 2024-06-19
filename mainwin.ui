@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>767</width>
+    <height>359</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,11 +17,20 @@
    <widget class="QLCDNumber" name="lcdNumber">
     <property name="geometry">
      <rect>
-      <x>60</x>
-      <y>20</y>
-      <width>64</width>
-      <height>23</height>
+      <x>10</x>
+      <y>10</y>
+      <width>751</width>
+      <height>291</height>
      </rect>
+    </property>
+    <property name="mouseTracking">
+     <bool>false</bool>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="contextMenuPolicy">
+     <enum>Qt::DefaultContextMenu</enum>
     </property>
    </widget>
   </widget>
@@ -30,7 +39,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>767</width>
      <height>21</height>
     </rect>
    </property>
