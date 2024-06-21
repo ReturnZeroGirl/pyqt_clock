@@ -9,9 +9,15 @@ stop=0
 def updatetime(win):
     while True:
         now = datetime.now()
-        h = now.hour
-        m = now.minute
-        s = now.second
+        h = str(now.hour)
+        m = str(now.minute)
+        s = str(now.second)
+        if(len(h) == 1):
+            h = "0" + h
+        if (len(m) == 1):
+            m = "0" + m
+        if (len(s) == 1):
+            s = "0" + s
         time = f"{h}:{m}:{s}"
         win.lcdNumber.display(time)
         t.sleep(0.1)
@@ -22,9 +28,15 @@ def updatedate(win):
         today = datetime.today()
 
         # 分别存入年、月、日三个变量
-        y = today.year
-        m = today.month
-        d = today.day
+        y = str(today.year)
+        m = str(today.month)
+        d = str(today.day)
+        if (len(y) == 1):
+            y = "0" + y
+        if (len(m) == 1):
+            m = "0" + m
+        if (len(d) == 1):
+            d = "0" + d
         time = f"{y}-{m}-{d}"
         win.lcdNumber_2.display(time)
         t.sleep(0.1)
