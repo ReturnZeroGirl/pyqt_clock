@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>767</width>
-    <height>546</height>
+    <width>326</width>
+    <height>177</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,10 +17,10 @@
    <widget class="QLCDNumber" name="lcdNumber">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>90</x>
       <y>10</y>
-      <width>751</width>
-      <height>291</height>
+      <width>211</width>
+      <height>51</height>
      </rect>
     </property>
     <property name="mouseTracking">
@@ -36,11 +36,37 @@
    <widget class="QLCDNumber" name="lcdNumber_2">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>310</y>
-      <width>751</width>
-      <height>191</height>
+      <x>90</x>
+      <y>80</y>
+      <width>211</width>
+      <height>51</height>
      </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>30</y>
+      <width>54</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>当前时间</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>100</y>
+      <width>54</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>当前日期</string>
     </property>
    </widget>
   </widget>
@@ -49,8 +75,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>767</width>
-     <height>22</height>
+     <width>326</width>
+     <height>23</height>
     </rect>
    </property>
   </widget>
