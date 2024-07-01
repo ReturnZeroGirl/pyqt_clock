@@ -1,5 +1,6 @@
 import sys
 from PyQt6.QtWidgets import *
+from PySide6.QtGui import QGuiApplication
 
 from datetime import *
 import time as t
@@ -46,11 +47,21 @@ class MainWidget(QMainWindow, Ui_MainWindow):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
-        self.show()
+        self.setStyleSheet("background-color: #161616;")
+        self.showFullScreen()
         self.lcdNumber.setDigitCount(8)
         self.lcdNumber_2.setDigitCount(10)
         threading.Thread(target=updatetime,args=(self,)).start()
         threading.Thread(target=updatedate, args=(self,)).start()
+        self.lcdNumber_2.setStyleSheet("color:#eeeeee")
+        self.lcdNumber.setStyleSheet("color:#eeeeee")
+    def resizeEvent(self, event):
+        screen = QGuiApplication.primaryScreen().geometry()
+        width = screen.width()  # 获取屏幕的宽
+        height = screen.height()  # 获取屏幕的高
+        print(width,height)
+        self.lcdNumber_2.setGeometry(0,0,width,int(height/2))
+        self.lcdNumber.setGeometry(0,int(height/2),width,int(height/2))
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     main = MainWidget()
