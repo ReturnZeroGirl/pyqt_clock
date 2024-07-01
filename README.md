@@ -1,2 +1,1 @@
 # pyqt_clock
-
