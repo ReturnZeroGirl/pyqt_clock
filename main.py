@@ -90,9 +90,11 @@ class MainWidget(QMainWindow, Ui_MainWindow):
         tmstatus += 1
         if(tmstatus %2 == 0):
             self.pushButton.setText("启动秒表")
+            self.pushButton_2.setEnabled(True)
             tm_stop = 1
         if (tmstatus % 2 != 0):
             self.pushButton.setText("停止秒表")
+            self.pushButton_2.setEnabled(False)
             tm_stop = 0
             threading.Thread(target=starttime, args=(self,)).start()
     def resetz(self):
