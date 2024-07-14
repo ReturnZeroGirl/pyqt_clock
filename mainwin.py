@@ -12,10 +12,9 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(326, 177)
+        MainWindow.resize(326, 272)
         self.centralwidget = QtWidgets.QWidget(parent=MainWindow)
         self.centralwidget.setObjectName("centralwidget")
-
         self.lcdNumber = QtWidgets.QLCDNumber(parent=self.centralwidget)
         self.lcdNumber.setGeometry(QtCore.QRect(90, 10, 211, 51))
         self.lcdNumber.setMouseTracking(False)
@@ -25,18 +24,21 @@ class Ui_MainWindow(object):
         self.lcdNumber_2 = QtWidgets.QLCDNumber(parent=self.centralwidget)
         self.lcdNumber_2.setGeometry(QtCore.QRect(90, 80, 211, 51))
         self.lcdNumber_2.setObjectName("lcdNumber_2")
-
         self.label = QtWidgets.QLabel(parent=self.centralwidget)
         self.label.setGeometry(QtCore.QRect(20, 30, 54, 17))
         self.label.setObjectName("label")
-
         self.label_2 = QtWidgets.QLabel(parent=self.centralwidget)
         self.label_2.setGeometry(QtCore.QRect(20, 100, 54, 17))
         self.label_2.setObjectName("label_2")
-
+        self.label_3 = QtWidgets.QLabel(parent=self.centralwidget)
+        self.label_3.setGeometry(QtCore.QRect(20, 170, 54, 16))
+        self.label_3.setObjectName("label_3")
+        self.lcdNumber_3 = QtWidgets.QLCDNumber(parent=self.centralwidget)
+        self.lcdNumber_3.setGeometry(QtCore.QRect(90, 160, 211, 51))
+        self.lcdNumber_3.setObjectName("lcdNumber_3")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(parent=MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 326, 23))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 326, 22))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(parent=MainWindow)
@@ -51,3 +53,4 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "PyQt-clock"))
         self.label.setText(_translate("MainWindow", "当前时间"))
         self.label_2.setText(_translate("MainWindow", "当前日期"))
+        self.label_3.setText(_translate("MainWindow", "星期"))
