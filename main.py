@@ -1,4 +1,6 @@
 import sys
+import time
+
 from PyQt6.QtWidgets import *
 
 from datetime import *
@@ -7,8 +9,9 @@ from mainwin import Ui_MainWindow
 import threading
 
 stop = 0
-
-
+tm_stop = 0
+tmstatus = 0
+tmts = 0
 def updatetime_ms(win):
     while True:
         now = datetime.now()
@@ -53,7 +56,6 @@ def updatedate(win):
         if stop == 1:
             return
 
-
 def updateweekday(win):
     while True:
         now = datetime.now()
@@ -69,9 +71,35 @@ def updateweekday(win):
         t.sleep(0.1)
         if stop == 1:
             return
-
+def starttime(win):
+    global tmts
+    while True:
+        t.sleep(1)
+        if (tm_stop == 1):
+            return
+        tmts += 1
+        print(tmts)
+        l = len(str(tmts))
+        win.lcdNumber_4.setDigitCount(l)
+        win.lcdNumber_4.display(tmts)
 
 class MainWidget(QMainWindow, Ui_MainWindow):
+    def bc(self):
+        global tmstatus
+        global tm_stop
+        tmstatus += 1
+        if(tmstatus %2 == 0):
+            self.pushButton.setText("启动秒表")
+            tm_stop = 1
+        if (tmstatus % 2 != 0):
+            self.pushButton.setText("停止秒表")
+            tm_stop = 0
+            threading.Thread(target=starttime, args=(self,)).start()
+    def resetz(self):
+        global tmts
+        tmts = 0
+        self.lcdNumber_4.display(tmts)
+
     def __init__(self):
         super().__init__()
         self.setupUi(self)
@@ -79,6 +107,9 @@ class MainWidget(QMainWindow, Ui_MainWindow):
         self.lcdNumber.setDigitCount(12)
         self.lcdNumber_2.setDigitCount(10)
         self.lcdNumber_3.setDigitCount(1)
+        self.lcdNumber_4.setDigitCount(1)
+        self.pushButton.clicked.connect(self.bc)
+        self.pushButton_2.clicked.connect(self.resetz)
         threading.Thread(target=updatetime_ms, args=(self,)).start()
         threading.Thread(target=updatedate, args=(self,)).start()
         threading.Thread(target=updateweekday, args=(self,)).start()

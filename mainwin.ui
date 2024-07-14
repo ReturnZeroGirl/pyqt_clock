@@ -6,91 +6,150 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>326</width>
-    <height>272</height>
+    <width>354</width>
+    <height>401</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>PyQt-clock</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLCDNumber" name="lcdNumber">
+   <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>10</y>
-      <width>211</width>
-      <height>51</height>
+      <x>0</x>
+      <y>0</y>
+      <width>351</width>
+      <height>351</height>
      </rect>
     </property>
-    <property name="mouseTracking">
-     <bool>false</bool>
+    <property name="currentIndex">
+     <number>1</number>
     </property>
-    <property name="focusPolicy">
-     <enum>Qt::NoFocus</enum>
-    </property>
-    <property name="contextMenuPolicy">
-     <enum>Qt::DefaultContextMenu</enum>
-    </property>
-   </widget>
-   <widget class="QLCDNumber" name="lcdNumber_2">
-    <property name="geometry">
-     <rect>
-      <x>90</x>
-      <y>80</y>
-      <width>211</width>
-      <height>51</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>30</y>
-      <width>54</width>
-      <height>17</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>当前时间</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_2">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>100</y>
-      <width>54</width>
-      <height>17</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>当前日期</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_3">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>170</y>
-      <width>54</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>星期</string>
-    </property>
-   </widget>
-   <widget class="QLCDNumber" name="lcdNumber_3">
-    <property name="geometry">
-     <rect>
-      <x>90</x>
-      <y>160</y>
-      <width>211</width>
-      <height>51</height>
-     </rect>
-    </property>
+    <widget class="QWidget" name="tab">
+     <attribute name="title">
+      <string>时钟</string>
+     </attribute>
+     <widget class="QLCDNumber" name="lcdNumber_3">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>160</y>
+        <width>211</width>
+        <height>51</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLCDNumber" name="lcdNumber_2">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>80</y>
+        <width>211</width>
+        <height>51</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>30</y>
+        <width>54</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>当前时间</string>
+      </property>
+     </widget>
+     <widget class="QLCDNumber" name="lcdNumber">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>10</y>
+        <width>211</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="mouseTracking">
+       <bool>false</bool>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::NoFocus</enum>
+      </property>
+      <property name="contextMenuPolicy">
+       <enum>Qt::DefaultContextMenu</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_2">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>100</y>
+        <width>54</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>当前日期</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_3">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>170</y>
+        <width>54</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>星期</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_2">
+     <attribute name="title">
+      <string>秒表</string>
+     </attribute>
+     <widget class="QLCDNumber" name="lcdNumber_4">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>341</width>
+        <height>101</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>120</y>
+        <width>75</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>启动秒表</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_2">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>120</y>
+        <width>75</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>清零</string>
+      </property>
+     </widget>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -98,7 +157,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>326</width>
+     <width>354</width>
      <height>22</height>
     </rect>
    </property>
