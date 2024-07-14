@@ -6,21 +6,26 @@ import time as t
 from mainwin import Ui_MainWindow
 import threading
 stop=0
-def updatetime(win):
+def updatetime_ms(win):
     while True:
         now = datetime.now()
         h = str(now.hour)
         m = str(now.minute)
         s = str(now.second)
+        ms = str(now.microsecond // 1000)
         if(len(h) == 1):
             h = "0" + h
         if (len(m) == 1):
             m = "0" + m
         if (len(s) == 1):
             s = "0" + s
-        time = f"{h}:{m}:{s}"
+        if(len(ms) == 1):
+            ms = "00" + ms
+        if(len(ms) == 2):
+            ms = "0" + ms
+        time = f"{h}:{m}:{s}:{ms}"
         win.lcdNumber.display(time)
-        t.sleep(0.1)
+        t.sleep(0.001)
         if stop == 1:
             return
 def updatedate(win):
@@ -47,9 +52,9 @@ class MainWidget(QMainWindow, Ui_MainWindow):
         super().__init__()
         self.setupUi(self)
         self.show()
-        self.lcdNumber.setDigitCount(8)
+        self.lcdNumber.setDigitCount(12)
         self.lcdNumber_2.setDigitCount(10)
-        threading.Thread(target=updatetime,args=(self,)).start()
+        threading.Thread(target=updatetime_ms,args=(self,)).start()
         threading.Thread(target=updatedate, args=(self,)).start()
 if __name__ == '__main__':
     app = QApplication(sys.argv)

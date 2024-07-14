@@ -15,6 +15,7 @@ class Ui_MainWindow(object):
         MainWindow.resize(326, 177)
         self.centralwidget = QtWidgets.QWidget(parent=MainWindow)
         self.centralwidget.setObjectName("centralwidget")
+
         self.lcdNumber = QtWidgets.QLCDNumber(parent=self.centralwidget)
         self.lcdNumber.setGeometry(QtCore.QRect(90, 10, 211, 51))
         self.lcdNumber.setMouseTracking(False)
@@ -24,12 +25,15 @@ class Ui_MainWindow(object):
         self.lcdNumber_2 = QtWidgets.QLCDNumber(parent=self.centralwidget)
         self.lcdNumber_2.setGeometry(QtCore.QRect(90, 80, 211, 51))
         self.lcdNumber_2.setObjectName("lcdNumber_2")
+
         self.label = QtWidgets.QLabel(parent=self.centralwidget)
         self.label.setGeometry(QtCore.QRect(20, 30, 54, 17))
         self.label.setObjectName("label")
+
         self.label_2 = QtWidgets.QLabel(parent=self.centralwidget)
         self.label_2.setGeometry(QtCore.QRect(20, 100, 54, 17))
         self.label_2.setObjectName("label_2")
+
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(parent=MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 326, 23))
