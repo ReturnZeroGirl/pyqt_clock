@@ -1,4 +1,4 @@
-name: Pyqt6_clock Build
+name: pyqt_clock Build
 
 on:
   push:
@@ -37,6 +37,39 @@ jobs:
       - name: Upload Artifacts
         uses: actions/upload-artifact@v3
         with:
-          name: ${{ runner.os }} Build
+          name: pyqt_clock Linux Build
           path: |
               build/*.bin
+
+  build_windows:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python3 x64
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+          architecture: 'x64'
+
+      - name: Setup pip packages
+        run: |
+          python -m pip install PyQt6
+          python -m pip install pydub
+
+      - name: Build with Nuitka
+        uses: Nuitka/Nuitka-Action@main
+        with:
+          nuitka-version: main
+          script-name: main.py
+          onefile: true
+          enable-plugins: pyqt6
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: pyqt_clock Windows Build
+          path: |
+              build/*.exe
