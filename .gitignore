@@ -2,10 +2,10 @@
 .idea/*
 __pycache__
 __pycache__/*
-*.build
-*.build/*
-*.dist
-*.dist/*
+*build
+*build/*
+*dist
+*dist/*
 *.spec
 .vscode
 .vscode/*
