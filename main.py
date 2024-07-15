@@ -8,6 +8,10 @@ import time as t
 from mainwin import Ui_MainWindow
 import threading
 
+from pydub import *
+
+from pydub.playback import play
+
 stop = 0
 tm_stop = 0
 tmstatus = 0
@@ -75,13 +79,13 @@ def starttime(win):
     global tmts
     while True:
         t.sleep(1)
-        if (tm_stop == 1):
+        if (tm_stop == 1 or stop == 1):
             return
         tmts += 1
-        print(tmts)
         l = len(str(tmts))
         win.lcdNumber_4.setDigitCount(l)
         win.lcdNumber_4.display(tmts)
+
 
 class MainWidget(QMainWindow, Ui_MainWindow):
     def bc(self):
@@ -122,5 +126,4 @@ if __name__ == '__main__':
     app.exec()
     stop = 1
     main.close()
-
     sys.exit(0)

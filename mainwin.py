@@ -39,7 +39,7 @@ class Ui_MainWindow(object):
         self.label_2.setGeometry(QtCore.QRect(10, 100, 54, 17))
         self.label_2.setObjectName("label_2")
         self.label_3 = QtWidgets.QLabel(parent=self.tab)
-        self.label_3.setGeometry(QtCore.QRect(10, 170, 54, 16))
+        self.label_3.setGeometry(QtCore.QRect(10, 180, 54, 16))
         self.label_3.setObjectName("label_3")
         self.tabWidget.addTab(self.tab, "")
         self.tab_2 = QtWidgets.QWidget()
@@ -48,10 +48,10 @@ class Ui_MainWindow(object):
         self.lcdNumber_4.setGeometry(QtCore.QRect(0, 0, 341, 101))
         self.lcdNumber_4.setObjectName("lcdNumber_4")
         self.pushButton = QtWidgets.QPushButton(parent=self.tab_2)
-        self.pushButton.setGeometry(QtCore.QRect(10, 120, 75, 24))
+        self.pushButton.setGeometry(QtCore.QRect(10, 120, 151, 191))
         self.pushButton.setObjectName("pushButton")
         self.pushButton_2 = QtWidgets.QPushButton(parent=self.tab_2)
-        self.pushButton_2.setGeometry(QtCore.QRect(250, 120, 75, 24))
+        self.pushButton_2.setGeometry(QtCore.QRect(170, 120, 161, 191))
         self.pushButton_2.setObjectName("pushButton_2")
         self.tabWidget.addTab(self.tab_2, "")
         MainWindow.setCentralWidget(self.centralwidget)
@@ -64,7 +64,7 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(1)
+        self.tabWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
