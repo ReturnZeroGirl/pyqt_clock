@@ -35,11 +35,10 @@ jobs:
           enable-plugins: pyqt6
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
-          name: pyqt_clock Linux Build
-          path: |
-              build/*.bin
+          name: pyqt_clock_build_linux.bin
+          path: build/*.bin
 
   build_windows:
     runs-on: ubuntu-latest
@@ -68,8 +67,7 @@ jobs:
           enable-plugins: pyqt6
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
-          name: pyqt_clock Windows Build
-          path: |
-              build/*.exe
+          name: pyqt_clock_build_win.exe
+          path: build/*.exe
