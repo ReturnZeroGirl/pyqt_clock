@@ -23,8 +23,8 @@ jobs:
 
       - name: Setup pip packages
         run: |
-          python -m pip install PyQt6 -y
-          python -m pip install pydub -y
+          python -m pip install PyQt6
+          python -m pip install pydub
 
       - name: Build with Nuitka
         uses: Nuitka/Nuitka-Action@main
