@@ -37,11 +37,11 @@ jobs:
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: pyqt_clock_build_linux.bin
+          name: pyqt_clock_build_linux
           path: build/*.bin
 
   build_windows:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
       - name: Check out repo
@@ -69,5 +69,5 @@ jobs:
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: pyqt_clock_build_win.exe
+          name: pyqt_clock_build_windows
           path: build/*.exe
