@@ -8,12 +8,8 @@ on:
 
 jobs:
 
-  build:
-    strategy:
-      matrix:
-        os: [ubuntu-latest, windows-latest]
-
-    runs-on: ${{ matrix.os }}
+  build_linux:
+    runs-on: ubuntu-latest
 
     steps:
       - name: Check out repo
@@ -28,7 +24,39 @@ jobs:
       - name: Setup pip packages
         uses: parafoxia/pip-install@v1
         with:
-          packages: pyqt6 pydub
+          packages: PyQt6 pydub
+
+      - name: Build with Nuitka
+        uses: Nuitka/Nuitka-Action@main
+        with:
+          nuitka-version: main
+          script-name: main.py
+          onefile: true
+          enable-plugins: pyqt6
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ runner.os }} Build
+          path: |
+              build/*.bin
+  build_windows:
+    runs-on: windows-latest
+
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python3 x64
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+          architecture: 'x64'
+
+      - name: Setup pip packages
+        uses: parafoxia/pip-install@v1
+        with:
+          packages: PyQt6 pydub
 
       - name: Build with Nuitka
         uses: Nuitka/Nuitka-Action@main
@@ -44,4 +72,3 @@ jobs:
           name: ${{ runner.os }} Build
           path: |
               build/*.exe
-              build/*.bin
