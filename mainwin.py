@@ -12,11 +12,11 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(354, 401)
+        MainWindow.resize(350, 300)
         self.centralwidget = QtWidgets.QWidget(parent=MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.tabWidget = QtWidgets.QTabWidget(parent=self.centralwidget)
-        self.tabWidget.setGeometry(QtCore.QRect(0, 0, 351, 351))
+        self.tabWidget.setGeometry(QtCore.QRect(0, 0, 351, 261))
         self.tabWidget.setObjectName("tabWidget")
         self.tab = QtWidgets.QWidget()
         self.tab.setObjectName("tab")
@@ -48,15 +48,15 @@ class Ui_MainWindow(object):
         self.lcdNumber_4.setGeometry(QtCore.QRect(0, 0, 341, 101))
         self.lcdNumber_4.setObjectName("lcdNumber_4")
         self.pushButton = QtWidgets.QPushButton(parent=self.tab_2)
-        self.pushButton.setGeometry(QtCore.QRect(10, 120, 151, 191))
+        self.pushButton.setGeometry(QtCore.QRect(10, 120, 151, 111))
         self.pushButton.setObjectName("pushButton")
         self.pushButton_2 = QtWidgets.QPushButton(parent=self.tab_2)
-        self.pushButton_2.setGeometry(QtCore.QRect(170, 120, 161, 191))
+        self.pushButton_2.setGeometry(QtCore.QRect(170, 120, 161, 111))
         self.pushButton_2.setObjectName("pushButton_2")
         self.tabWidget.addTab(self.tab_2, "")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(parent=MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 354, 22))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 350, 22))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(parent=MainWindow)
@@ -64,7 +64,7 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(0)
+        self.tabWidget.setCurrentIndex(1)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):

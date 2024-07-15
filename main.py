@@ -123,6 +123,7 @@ class MainWidget(QMainWindow, Ui_MainWindow):
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     main = MainWidget()
+    main.setFixedSize(350,300)
     app.exec()
     stop = 1
     main.close()
