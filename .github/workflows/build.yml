@@ -63,14 +63,6 @@ jobs:
         run: |
           pyinstaller -F -w main.py
 
-      #- name: Build with Nuitka
-      #uses: Nuitka/Nuitka-Action@main
-      #with:
-      #nuitka-version: main
-      #script-name: main.py
-      #onefile: true
-      #enable-plugins: pyqt6
-
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
