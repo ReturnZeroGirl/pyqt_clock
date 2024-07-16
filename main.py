@@ -16,6 +16,8 @@ stop = 0
 tm_stop = 0
 tmstatus = 0
 tmts = 0
+
+
 def updatetime_ms(win):
     while True:
         now = datetime.now()
@@ -60,6 +62,7 @@ def updatedate(win):
         if stop == 1:
             return
 
+
 def updateweekday(win):
     while True:
         now = datetime.now()
@@ -75,6 +78,8 @@ def updateweekday(win):
         t.sleep(0.1)
         if stop == 1:
             return
+
+
 def starttime(win):
     global tmts
     while True:
@@ -82,9 +87,13 @@ def starttime(win):
         if (tm_stop == 1 or stop == 1):
             return
         tmts += 1
-        l = len(str(tmts))
+        timeh = tmts // 3600
+        timem = tmts % 3600 // 60
+        times = tmts % 60
+        time = f"{timeh}:{timem}:{times}"
+        l = len(str(time))
         win.lcdNumber_4.setDigitCount(l)
-        win.lcdNumber_4.display(tmts)
+        win.lcdNumber_4.display(time)
 
 
 class MainWidget(QMainWindow, Ui_MainWindow):
@@ -92,7 +101,7 @@ class MainWidget(QMainWindow, Ui_MainWindow):
         global tmstatus
         global tm_stop
         tmstatus += 1
-        if(tmstatus %2 == 0):
+        if (tmstatus % 2 == 0):
             self.pushButton.setText("启动秒表")
             self.pushButton_2.setEnabled(True)
             tm_stop = 1
@@ -101,6 +110,7 @@ class MainWidget(QMainWindow, Ui_MainWindow):
             self.pushButton_2.setEnabled(False)
             tm_stop = 0
             threading.Thread(target=starttime, args=(self,)).start()
+
     def resetz(self):
         global tmts
         tmts = 0
@@ -113,17 +123,19 @@ class MainWidget(QMainWindow, Ui_MainWindow):
         self.lcdNumber.setDigitCount(12)
         self.lcdNumber_2.setDigitCount(10)
         self.lcdNumber_3.setDigitCount(1)
-        self.lcdNumber_4.setDigitCount(1)
+        self.lcdNumber_4.setDigitCount(5)
+        self.lcdNumber_4.display("0:0:0")
         self.pushButton.clicked.connect(self.bc)
         self.pushButton_2.clicked.connect(self.resetz)
         threading.Thread(target=updatetime_ms, args=(self,)).start()
         threading.Thread(target=updatedate, args=(self,)).start()
         threading.Thread(target=updateweekday, args=(self,)).start()
 
+
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     main = MainWidget()
-    main.setFixedSize(350,300)
+    main.setFixedSize(350, 300)
     app.exec()
     stop = 1
     main.close()
