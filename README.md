@@ -5,4 +5,4 @@
 
 一个 Python 制作的带有 GUI 的钟表
 
-模块引用： pyqt6 pydub
+模块引用： pyqt6
