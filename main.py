@@ -8,9 +8,6 @@ import time as t
 from mainwin import Ui_MainWindow
 import threading
 
-from pydub import *
-
-from pydub.playback import play
 
 stop = 0
 tm_stop = 0
